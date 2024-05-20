@@ -38,7 +38,7 @@ We consider the experimental resource cost and the number of experiments as main
 
 ![cost_reduction](figs/accuracy_cost.png)
 
-BMLP_{active}$ reduces 90% of the cost used by random experiment sampling when converging to the correct gene function hypothesis. 
+$BMLP_{active}$ reduces 90% of the cost used by random experiment sampling when converging to the correct gene function hypothesis. 
 
 Active learning experiment results:
 /src/experiments/iML1515/abduction/output/gene_function_learning
