@@ -68,9 +68,9 @@ Active learning experiment results:
 }
 ```
 
-## License
+## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Distributed under the MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT). See LICENSE.txt for more information.
+Distributed under the MIT License. See LICENSE.txt for more information.
 
 ## Contact
 [Dr. Lun Ai](https://lai1997.github.io/) (corresponding author)
