@@ -1,6 +1,6 @@
 # Boolean matrix logic programming for active learning of gene functions in genome-scale metabolic network models
 
-This repository contains the official experiment data of [Boolean matrix logic programming for active learning of gene functions in genome-scale metabolic network models](https://arxiv.org/abs/2405.06724). 
+This repository contains the experiment data of [Boolean matrix logic programming for active learning of gene functions in genome-scale metabolic network models](https://arxiv.org/abs/2405.06724). 
 
 ## Framework
 
