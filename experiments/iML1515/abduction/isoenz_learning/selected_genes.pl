@@ -1,0 +1,39 @@
+target(b4054).
+
+% cannot locate trpR
+
+selected([
+    tnaA,
+    trpE,
+    aroH,%
+    pheA,
+    trpD,
+    tyrA,
+    aroF,%
+    aroC,
+    tyrB,%
+    aroL,
+    aroE,
+    aspC,%
+    trpA,
+    trpB,
+    cysJ,
+    purH,
+    purM,
+    purK,
+    metE,
+    pyrD,
+    pyrE,
+    cysQ,
+    serC,
+    cysI,
+    purL,
+    carB,
+    purC,
+    ilvE,%
+    thrC,
+    trpC,
+    pyrF,
+    atpB,
+    pdxH
+]).

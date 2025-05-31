@@ -1,0 +1,10 @@
+:- dynamic(codes/2).
+:- dynamic(enzyme/7).
+%:- set_random(seed(110)).
+:- ['src/models/iML1515/iML1515_bk.pl'].
+:- ['src/framework/deduction/simulator.pl'].
+:- ['src/models/iML1515/herbn.pl'].
+:- ['src/models/iML1515/reaction.pl'].
+:- ['experiments/iML1515/abduction/isoenz_learning/growth_medium.pl'].
+:- ['experiments/iML1515/abduction/isoenz_learning/pathway_without_tyrB.pl'].
+:- ['experiments/iML1515/abduction/isoenz_learning/sample.pl'].
