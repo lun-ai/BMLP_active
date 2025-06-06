@@ -1,10 +1,17 @@
 # Boolean matrix logic programming for active learning of gene functions in genome-scale metabolic network models
 
-This repository contains source code and data for the SWI-Prolog system $BMLP_{active}$, which actively selects data to learn gene function annotations from genome-scale metabolic network models. 
+Thank you for visiting the GitHub repository of the SWI-Prolog system $BMLP_{active}$, which actively selects data to learn gene function annotations from genome-scale metabolic network models. 
+
+Here, we explain:
+
+* How $BMLP_{active}$ works
+* How to use $BMLP_{active}$
+* Which software dependencies are required
+* How to reproduce the results in the paper
 
 ## Framework
 
-$BMLP_{active}$ explores the functional genomic hypothesis space by guiding informative experimentation through interpretable logical representation. It is based on a general purpose logic programming language SWI-Prolog and accelerated logical inference accommodated by Boolean matrix computation (Boolean Matrix Logic Programming, BMLP). $BMLP_{active}$ takes the advantage of fast computation, logical reasoning and active learning to enable rapid optimisation of metabolic models.
+$BMLP_{active}$ explores the functional genomic hypothesis space by guiding informative experimentation through interpretable logical representation. It is based on a general purpose logic programming language, SWI-Prolog, and accelerated logical inference accommodated by Boolean matrix computation (Boolean Matrix Logic Programming, BMLP). $BMLP_{active}$ takes the advantage of fast computation, logical reasoning and active learning to enable rapid optimisation of metabolic models.
 
 ![Framework_overview](figs/bmlp_active.png)
 
@@ -19,18 +26,32 @@ $BMLP_{active}$ encodes the genome-scale metabolic network model (GEM) iML1515 a
 
 ## Usage
 ### GEM phenotype predictions
-Running BMLP-IE algorithm require pre-defined experiment candidates. An example of experiment candidates can be found at library/double_knockout/examples.pl.
+Running the BMLP-IE algorithm requires pre-defined experiment candidates. An example of experiment candidates can be found at library/double_knockout/examples.pl.
 
 ```commandline
 bash src/framework/simulate.sh -n <batch_size> -s <path_to_experiments>
 ```
 `batch_size`: This denotes the size of a simulation batch (default is 100).
 
-`path_to_experiments`: This argument is is the source path of experiment candidate definitions. 
+`path_to_experiments`: This argument is the source path of experiment candidate definitions. 
 
 Example command:
 ```commandline
 bash src/framework/simulate.sh -n 500 -s library/double_knockout/examples.pl
+```
+
+### Classification matrix
+The classification matrix contains phenotype predictions from GEM per hypothesis candidate. 
+This classification matrix needs to be computed one-off before selecting the experiment for more efficient computation.
+
+To compute the classification matrix:
+```
+python src/framework/abduction.py ase <abducible_and_experiment_candidate_path> --single_gene <gene_id> --matrix
+```
+
+Example command (can take quite long):
+```
+python src/framework/abduction.py ase experiments/iML1515/abduction/gene_function_learning --single_gene b0720 --matrix
 ```
 
 ### Active selection of experiment (ase)
@@ -54,18 +75,6 @@ An example is provided in experiments/iML1515/abduction/gene_function_learning:
 python src/framework/abduction.py ase experiments/iML1515/abduction/gene_function_learning --use_output experiments/iML1515/abduction/output/gene_function_learning/abd_b0720 --single_gene b0720 --steps [0,1,2,3,4,5,10,15,20,25,30] --rep 10
 ```
 
-### Classification table
-This classification matrix needs to be computed before running ase due to long computation time.
-
-To compute the classification matrix:
-```
-python src/framework/abduction.py ase <abducible_and_experiment_candidate_path> --single_gene <gene_id> --matrix
-```
-
-Example command (can take quite long):
-```
-python src/framework/abduction.py ase experiments/iML1515/abduction/gene_function_learning --single_gene b0720 --matrix
-```
 
 ## Reproducibility
 Scripts to reproduce results are in the scripts/ folder. Computed results will be placed in a separate folder. We provided a Jupyter notebook (src/result_analysis.ipynb) to process results. 
